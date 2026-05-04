@@ -9,19 +9,36 @@
     overflow: hidden;
     font-family: Arial, sans-serif;
     height: 100vh;
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #eef;
   }
 
-  button {
-    position: absolute;
-    top: 20px;
-    padding: 15px 30px;
-    font-size: 16px;
+  /* Стиль красивой кнопки */
+  #ballButton {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #ff6f61, #ffcc70);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
     z-index: 10;
+  }
+
+  #ballButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+  }
+
+  #ballButton:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
 </style>
 </head>
@@ -39,7 +56,7 @@
     ball.style.left = Math.random() * window.innerWidth + 'px';
     ball.style.width = '20px';
     ball.style.height = '20px';
-    ball.style.backgroundColor = 'red';
+    ball.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`; // цвет радуги
     ball.style.borderRadius = '50%';
     ball.style.opacity = '0.8';
     document.body.appendChild(ball);
@@ -77,8 +94,8 @@
 
   button.addEventListener('click', () => {
     // Создаём несколько шариков при нажатии
-    for (let i = 0; i < 10; i++) {
-      setTimeout(createBall, i * 200); // задержка между шариками
+    for (let i = 0; i < 12; i++) {
+      setTimeout(createBall, i * 150); // задержка между шариками
     }
   });
 </script>
