@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ermanchick | Personal Page</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace; /* Консольный стиль /
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            border: 2px solid #4caf50; / Зеленый цвет терминала */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
+            max-width: 600px;
+        }
+        h1 {
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .status {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #888;
+        }
+        .heart {
+            color: #ff4d4d;
+        }
+        a {
+            color: #4caf50;
+            text-decoration: none;
+            border-bottom: 1px dashed #4caf50;
+        }
+        a:hover {
+            background-color: #4caf50;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>> Hello, World!</h1>
+        <p>Меня зовут <strong>Ermanchick</strong>.</p>
+        <p>Я разработчик, люблю Node.js, консоли и порядок в коде.</p>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
+
+        <p>Этот сайт работает на GitHub Pages.</p>
+        <p>Специально для <span class="heart">❤</span> Насти.</p>
+
+        <div class="status">
+            <p>Status: <span style="color: #4caf50;">Online</span> | Server: GitHub</p>
+        </div>
+    </div>
+
+</body>
+</html>
