@@ -2,23 +2,30 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
-<title>Шарики при нажатии</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Мое портфолио</title>
 <style>
   body {
     margin: 0;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    height: 100vh;
+    font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: #fff;
   }
 
-  /* Стиль красивой кнопки */
+  header {
+    text-align: center;
+    padding: 50px 20px 20px 20px;
+  }
+
+  h1 {
+    font-size: 3em;
+    margin: 0;
+  }
+
+  /* Красивая кнопка */
   #ballButton {
     padding: 15px 40px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: #fff;
     background: linear-gradient(45deg, #ff6f61, #ffcc70);
@@ -27,8 +34,7 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
-    z-index: 10;
+    margin-top: 30px;
   }
 
   #ballButton:hover {
@@ -36,15 +42,57 @@
     box-shadow: 0 12px 20px rgba(0,0,0,0.3);
   }
 
-  #ballButton:active {
-    transform: scale(0.98);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  /* Разделы портфолио */
+  section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
   }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+  }
+
+  .project {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .project h3 {
+    margin-top: 0;
+  }
+
+  /* Анимация шариков */
+  /* Никаких дополнительных стилей для шариков не нужно, они создаются через JS */
 </style>
 </head>
 <body>
 
-<button id="ballButton">Запустить шарики</button>
+<header>
+  <h1>Мое портфолио</h1>
+  <button id="ballButton">Запустить шарики</button>
+</header>
+
+<section>
+  <h2>Мои проекты</h2>
+  <div class="project">
+    <h3>Проект 1: Веб-сайт</h3>
+    <p>Создал современный сайт с адаптивным дизайном для клиента.</p>
+  </div>
+  <div class="project">
+    <h3>Проект 2: Мобильное приложение</h3>
+    <p>Разработал мобильное приложение для управления задачами.</p>
+  </div>
+  <div class="project">
+    <h3>Проект 3: Графический дизайн</h3>
+    <p>Создал логотипы и бренд-буки для компаний.</p>
+  </div>
+</section>
 
 <script>
   const button = document.getElementById('ballButton');
@@ -56,15 +104,14 @@
     ball.style.left = Math.random() * window.innerWidth + 'px';
     ball.style.width = '20px';
     ball.style.height = '20px';
-    ball.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`; // цвет радуги
+    ball.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
     ball.style.borderRadius = '50%';
     ball.style.opacity = '0.8';
     document.body.appendChild(ball);
 
-    // Анимация взлета
     let position = 0;
-    const maxHeight = Math.random() * 300 + 200; // высота взлёта
-    const fallSpeed = 2 + Math.random() * 2; // скорость
+    const maxHeight = Math.random() * 300 + 200;
+    const fallSpeed = 2 + Math.random() * 2;
 
     function animate() {
       position += fallSpeed;
@@ -73,7 +120,6 @@
       if (position < maxHeight) {
         requestAnimationFrame(animate);
       } else {
-        // Шарик достигает вершины, начинаем падение
         fall();
       }
     }
@@ -84,7 +130,6 @@
         ball.style.bottom = position + 'px';
         requestAnimationFrame(fall);
       } else {
-        // Удаляем шарик
         document.body.removeChild(ball);
       }
     }
@@ -93,9 +138,8 @@
   }
 
   button.addEventListener('click', () => {
-    // Создаём несколько шариков при нажатии
     for (let i = 0; i < 12; i++) {
-      setTimeout(createBall, i * 150); // задержка между шариками
+      setTimeout(createBall, i * 150);
     }
   });
 </script>
