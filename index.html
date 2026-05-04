@@ -23,7 +23,7 @@
             text-align: center;
             margin-bottom: 15px;
         }
-        input[type="text"], input[type="email"], input[type="password"] {
+        input[type="text"], input[type="password"] {
             width: 100%;
             padding: 8px;
             margin: 8px 0;
@@ -43,6 +43,15 @@
         button:hover {
             background-color: #45a049;
         }
+        .link {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -50,10 +59,12 @@
         <h2>Регистрация</h2>
         <form>
             <input type="text" placeholder="Имя" required />
-            <input type="email" placeholder="Email" required />
             <input type="password" placeholder="Пароль" required />
             <button type="submit">Зарегистрироваться</button>
         </form>
+        <div class="link">
+            <a href="admin.html">Перейти на страницу админа</a>
+        </div>
     </div>
 </body>
 </html>
