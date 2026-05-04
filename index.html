@@ -57,14 +57,23 @@
 <body>
     <div class="registration-form">
         <h2>Регистрация</h2>
-        <form>
-            <input type="text" placeholder="Имя" required />
-            <input type="password" placeholder="Пароль" required />
+        <form id="registerForm">
+            <input type="text" id="name" placeholder="Имя" required />
+            <input type="password" id="password" placeholder="Пароль" required />
             <button type="submit">Зарегистрироваться</button>
         </form>
         <div class="link">
             <a href="admin.html">Перейти на страницу админа</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Здесь можно добавить сохранение данных, например, в localStorage
+            // Для примера сделаем перенаправление на другую страницу
+            window.location.href = 'site.html'; // замените на название вашей страницы сайта
+        });
+    </script>
 </body>
 </html>
