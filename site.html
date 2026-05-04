@@ -1,11 +1,87 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <title>Защищенный сайт</title>
+<meta charset="UTF-8" />
+<title>Шарики при нажатии</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eef;
+  }
+
+  button {
+    position: absolute;
+    top: 20px;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+  }
+</style>
 </head>
 <body>
-    <h1>Добро пожаловать на сайт!</h1>
-    <p>Вы вошли как админ.</p>
+
+<button id="ballButton">Запустить шарики</button>
+
+<script>
+  const button = document.getElementById('ballButton');
+
+  function createBall() {
+    const ball = document.createElement('div');
+    ball.style.position = 'absolute';
+    ball.style.bottom = '0px';
+    ball.style.left = Math.random() * window.innerWidth + 'px';
+    ball.style.width = '20px';
+    ball.style.height = '20px';
+    ball.style.backgroundColor = 'red';
+    ball.style.borderRadius = '50%';
+    ball.style.opacity = '0.8';
+    document.body.appendChild(ball);
+
+    // Анимация взлета
+    let position = 0;
+    const maxHeight = Math.random() * 300 + 200; // высота взлёта
+    const fallSpeed = 2 + Math.random() * 2; // скорость
+
+    function animate() {
+      position += fallSpeed;
+      ball.style.bottom = position + 'px';
+
+      if (position < maxHeight) {
+        requestAnimationFrame(animate);
+      } else {
+        // Шарик достигает вершины, начинаем падение
+        fall();
+      }
+    }
+
+    function fall() {
+      if (position > 0) {
+        position -= fallSpeed;
+        ball.style.bottom = position + 'px';
+        requestAnimationFrame(fall);
+      } else {
+        // Удаляем шарик
+        document.body.removeChild(ball);
+      }
+    }
+
+    animate();
+  }
+
+  button.addEventListener('click', () => {
+    // Создаём несколько шариков при нажатии
+    for (let i = 0; i < 10; i++) {
+      setTimeout(createBall, i * 200); // задержка между шариками
+    }
+  });
+</script>
+
 </body>
 </html>
