@@ -1,0 +1,96 @@
+/* Светлая тема (по умолчанию) */
+:root {
+    --bg-primary: #f0f2f5;
+    --bg-secondary: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #888888;
+    --border-color: #e0e0e0;
+    --message-sent: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --message-received: #ffffff;
+    --sidebar-bg: #ffffff;
+    --hover-bg: #f8f9fa;
+}
+
+/* Тёмная тема */
+.theme-dark {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --text-primary: #eaeaea;
+    --text-secondary: #b0b0b0;
+    --border-color: #2a2a3e;
+    --message-sent: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --message-received: #0f3460;
+    --sidebar-bg: #16213e;
+    --hover-bg: #1a1a2e;
+}
+
+/* Цветная тема (Purple) */
+.theme-purple {
+    --bg-primary: #2d1b4e;
+    --bg-secondary: #1f1433;
+    --text-primary: #f0e6ff;
+    --text-secondary: #c9b3ff;
+    --border-color: #3d2b5e;
+    --message-sent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --message-received: #3d2b5e;
+    --sidebar-bg: #1f1433;
+    --hover-bg: #2d1b4e;
+}
+
+/* Применение переменных */
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.sidebar {
+    background: var(--sidebar-bg);
+    border-right-color: var(--border-color);
+}
+
+.chat-area {
+    background: var(--bg-primary);
+}
+
+.chat-header-bar {
+    background: var(--bg-secondary);
+    border-bottom-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.message.received {
+    background: var(--message-received);
+    color: var(--text-primary);
+}
+
+.message.sent {
+    background: var(--message-sent);
+    color: white;
+}
+
+.chat-item:hover {
+    background: var(--hover-bg);
+}
+
+.chat-name {
+    color: var(--text-primary);
+}
+
+.chat-preview {
+    color: var(--text-secondary);
+}
+
+.chat-time {
+    color: var(--text-secondary);
+}
+
+.message-input-area {
+    background: var(--bg-secondary);
+    border-top-color: var(--border-color);
+}
+
+.message-input {
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
